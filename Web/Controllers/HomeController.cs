@@ -27,5 +27,13 @@ namespace Web.Controllers
             };
             return View(homeVm);
         }
+        // configer download cv 
+        [HttpGet]
+        public ActionResult GetPdf()
+        {
+            string filePath = "~/file/LotfyE.pdf";
+            Response.Headers.Add("Content-Disposition", "inline; filename=LotfyE.pdf");
+            return File(filePath, "application/pdf");
+        }
     }
 }
